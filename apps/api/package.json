@@ -1,0 +1,10 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HimBazaar Node.js REST API scaffold — not implemented in current phase",
+  "scripts": {
+    "dev": "echo 'API scaffold only — implement in later phase'",
+    "start": "echo 'API scaffold only'"
+  }
+}
