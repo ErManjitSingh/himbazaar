@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Explicit source roots so production builds include all utility classes */
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
+
 :root {
   --hb-deep: #0b3d2e;
   --hb-forest: #123f32;
