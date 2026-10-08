@@ -29,15 +29,15 @@ export function SectionHeading({
     >
       <div className={cn("max-w-2xl", align === "center" && "mx-auto")}>
         {eyebrow && (
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-hb-gold">
+          <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-hb-muted">
             {eyebrow}
           </p>
         )}
-        <h2 className="font-serif text-3xl text-hb-deep md:text-4xl text-balance">
+        <h2 className="font-serif text-[1.85rem] leading-tight tracking-[-0.02em] text-hb-deep md:text-[2.35rem] text-balance">
           {title}
         </h2>
         {description && (
-          <p className="mt-3 text-sm leading-relaxed text-hb-muted md:text-base">
+          <p className="mt-3 max-w-lg text-sm leading-relaxed text-hb-muted md:text-[0.95rem]">
             {description}
           </p>
         )}

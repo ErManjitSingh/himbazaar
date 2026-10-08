@@ -4,17 +4,18 @@
 @source "../**/*.{js,ts,jsx,tsx,mdx}";
 
 :root {
-  --hb-deep: #0b3d2e;
-  --hb-forest: #123f32;
-  --hb-natural: #657a32;
-  --hb-gold: #c79a35;
-  --hb-cream: #f7f3e8;
-  --hb-ivory: #fcfbf7;
-  --hb-text: #18342b;
-  --hb-muted: #68746f;
-  --hb-border: #e4ddd0;
+  /* Cold ridge — ink, mist, copper. Not cream/gold marketplace. */
+  --hb-deep: #15202b;
+  --hb-forest: #1e4d3f;
+  --hb-natural: #4a6358;
+  --hb-gold: #c4784a;
+  --hb-cream: #eef2f5;
+  --hb-ivory: #f7f9fb;
+  --hb-text: #15202b;
+  --hb-muted: #5c6b76;
+  --hb-border: #d5dde5;
   --hb-white: #ffffff;
-  --hb-danger: #9b2c2c;
+  --hb-danger: #a33b3b;
   --hb-success: #1f6b4a;
 
   --background: var(--hb-ivory);
@@ -35,8 +36,8 @@
   --color-hb-border: var(--hb-border);
   --color-hb-danger: var(--hb-danger);
   --color-hb-success: var(--hb-success);
-  --font-sans: var(--font-jakarta);
-  --font-serif: var(--font-source-serif);
+  --font-sans: var(--font-sora);
+  --font-serif: var(--font-fraunces);
 }
 
 @layer base {
@@ -51,7 +52,7 @@
   body {
     background: var(--hb-ivory);
     color: var(--hb-text);
-    font-family: var(--font-jakarta), system-ui, sans-serif;
+    font-family: var(--font-sora), ui-sans-serif, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -59,7 +60,8 @@
   h2,
   h3,
   .font-serif {
-    font-family: var(--font-source-serif), Georgia, serif;
+    font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+    font-optical-sizing: auto;
   }
 
   :focus-visible {
@@ -68,7 +70,7 @@
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--hb-gold) 35%, white);
+    background: color-mix(in srgb, var(--hb-gold) 28%, white);
     color: var(--hb-deep);
   }
 }
@@ -77,19 +79,19 @@
   .container-hb {
     margin-inline: auto;
     width: 100%;
-    max-width: 80rem;
-    padding-inline: 1rem;
+    max-width: 78rem;
+    padding-inline: 1.25rem;
   }
 
   @media (min-width: 640px) {
     .container-hb {
-      padding-inline: 1.5rem;
+      padding-inline: 1.75rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container-hb {
-      padding-inline: 2rem;
+      padding-inline: 2.25rem;
     }
   }
 
@@ -98,43 +100,35 @@
   }
 
   .section-pad {
-    padding-block: 3rem;
+    padding-block: 3.5rem;
   }
 
   @media (min-width: 768px) {
-    .section-pad {
-      padding-block: 4rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
     .section-pad {
       padding-block: 5rem;
     }
   }
 
+  @media (min-width: 1024px) {
+    .section-pad {
+      padding-block: 6rem;
+    }
+  }
+
   .gradient-mountain {
     background:
-      radial-gradient(ellipse 80% 60% at 20% 20%, rgba(101, 122, 50, 0.18), transparent 55%),
-      radial-gradient(ellipse 70% 50% at 90% 10%, rgba(199, 154, 53, 0.12), transparent 50%),
-      linear-gradient(180deg, var(--hb-cream) 0%, var(--hb-ivory) 100%);
+      radial-gradient(ellipse 70% 50% at 10% 0%, rgba(30, 77, 63, 0.08), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 20%, rgba(196, 120, 74, 0.07), transparent 50%),
+      linear-gradient(180deg, #e8eef3 0%, var(--hb-ivory) 100%);
   }
 
   .hero-overlay {
     background: linear-gradient(
-      105deg,
-      rgba(11, 61, 46, 0.82) 0%,
-      rgba(18, 63, 50, 0.55) 45%,
-      rgba(11, 61, 46, 0.25) 100%
+      180deg,
+      rgba(21, 32, 43, 0.35) 0%,
+      rgba(21, 32, 43, 0.15) 40%,
+      rgba(21, 32, 43, 0.72) 100%
     );
-  }
-
-  .card-lift {
-    transition: transform 300ms ease-out;
-  }
-
-  .card-lift:hover {
-    transform: translateY(-2px);
   }
 
   .scrollbar-none {
@@ -150,11 +144,20 @@
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hero-ken {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
   }
 }
 
@@ -165,11 +168,19 @@
 }
 
 .animate-fade-up {
-  animation: fade-up 0.6s ease-out both;
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-fade-up-delay {
-  animation: fade-up 0.7s ease-out 0.12s both;
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both;
+}
+
+.animate-fade-up-late {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+}
+
+.animate-hero-ken {
+  animation: hero-ken 12s ease-out both;
 }
 
 .skeleton {
@@ -186,7 +197,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.45),
+    rgba(255, 255, 255, 0.5),
     transparent
   );
   animation: shimmer 1.4s infinite;

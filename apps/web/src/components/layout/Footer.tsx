@@ -52,17 +52,17 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-hb-border bg-hb-cream">
+    <footer className="mt-auto bg-hb-deep text-white">
       <div className="container-hb section-pad">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_2fr]">
           <div>
-            <Logo />
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-hb-muted">
+            <Logo light />
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/65">
               India&apos;s marketplace for authentic Himalayan &amp; Himachali
               products — straight from the mountains to your home.
             </p>
             <div className="mt-6 max-w-sm">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-hb-deep">
+              <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white/50">
                 Newsletter
               </p>
               <NewsletterForm />
@@ -72,7 +72,7 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
             {columns.map((col) => (
               <div key={col.title}>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-hb-deep">
+                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
                   {col.title}
                 </p>
                 <ul className="mt-3 space-y-2">
@@ -80,7 +80,7 @@ export function Footer() {
                     <li key={link.href + link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm text-hb-muted hover:text-hb-deep"
+                        className="text-sm text-white/65 hover:text-white"
                       >
                         {link.label}
                       </Link>
@@ -92,7 +92,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-hb-border/80 pt-6 text-xs text-hb-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} HimBazaar. Made with care in India.</p>
           <p>Made in Himachal. Loved across India.</p>
         </div>

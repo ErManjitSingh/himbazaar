@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Heart, MapPin, Menu, ShoppingBag, User } from "lucide-react";
+import { Heart, Menu, ShoppingBag, User } from "lucide-react";
 import { Logo } from "./Logo";
 import { SearchBar } from "./SearchBar";
 import { MegaNav } from "./MegaMenu";
@@ -22,8 +22,8 @@ export function Header() {
   const wishCount = mounted ? wishlist.length : 0;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-hb-border/80 bg-white/95 backdrop-blur-md">
-      <div className="container-hb flex h-16 items-center gap-3 md:h-[4.25rem] md:gap-5">
+    <header className="sticky top-0 z-40 border-b border-hb-border/60 bg-hb-ivory/90 backdrop-blur-md">
+      <div className="container-hb flex h-14 items-center gap-3 md:h-16 md:gap-5">
         <button
           type="button"
           className="lg:hidden"
@@ -39,19 +39,10 @@ export function Header() {
           <SearchBar />
         </div>
 
-        <div className="ml-auto flex items-center gap-1 sm:gap-2">
-          <button
-            type="button"
-            className="hidden items-center gap-1.5 rounded-md px-2 py-2 text-sm text-hb-muted hover:bg-hb-cream hover:text-hb-deep xl:inline-flex"
-            aria-label="Select delivery location"
-          >
-            <MapPin className="h-4 w-4" />
-            <span className="max-w-[100px] truncate">India</span>
-          </button>
-
+        <div className="ml-auto flex items-center gap-0.5 sm:gap-1">
           <Link
             href="/account"
-            className="rounded-md p-2 text-hb-deep hover:bg-hb-cream"
+            className="rounded-sm p-2 text-hb-deep hover:bg-hb-cream"
             aria-label="Account"
           >
             <User className="h-5 w-5" />
@@ -59,12 +50,12 @@ export function Header() {
 
           <Link
             href="/wishlist"
-            className="relative rounded-md p-2 text-hb-deep hover:bg-hb-cream"
+            className="relative rounded-sm p-2 text-hb-deep hover:bg-hb-cream"
             aria-label="Wishlist"
           >
             <Heart className="h-5 w-5" />
             {wishCount > 0 && (
-              <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-hb-gold px-1 text-[10px] font-bold text-hb-deep">
+              <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-sm bg-hb-gold px-1 text-[10px] font-semibold text-white">
                 {wishCount}
               </span>
             )}
@@ -72,12 +63,12 @@ export function Header() {
 
           <Link
             href="/cart"
-            className="relative rounded-md p-2 text-hb-deep hover:bg-hb-cream"
+            className="relative rounded-sm p-2 text-hb-deep hover:bg-hb-cream"
             aria-label="Cart"
           >
             <ShoppingBag className="h-5 w-5" />
             {cartCount > 0 && (
-              <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-hb-deep px-1 text-[10px] font-bold text-white">
+              <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-sm bg-hb-deep px-1 text-[10px] font-semibold text-white">
                 {cartCount}
               </span>
             )}

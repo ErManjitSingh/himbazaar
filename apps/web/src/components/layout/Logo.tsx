@@ -12,13 +12,13 @@ export function Logo({
     <Link
       href="/"
       className={cn(
-        "font-serif text-2xl tracking-tight md:text-[1.65rem]",
+        "font-serif text-[1.35rem] tracking-[-0.02em] md:text-[1.5rem]",
         light ? "text-white" : "text-hb-deep",
         className
       )}
       aria-label="HimBazaar home"
     >
-      Him<span className={light ? "text-hb-gold" : "text-hb-natural"}>Bazaar</span>
+      HimBazaar
     </Link>
   );
 }
