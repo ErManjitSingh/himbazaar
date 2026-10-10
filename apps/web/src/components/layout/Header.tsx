@@ -22,7 +22,7 @@ export function Header() {
   const wishCount = mounted ? wishlist.length : 0;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-hb-border/60 bg-hb-ivory/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-hb-border bg-white/95 backdrop-blur-md">
       <div className="container-hb flex h-14 items-center gap-3 md:h-16 md:gap-5">
         <button
           type="button"
@@ -42,10 +42,11 @@ export function Header() {
         <div className="ml-auto flex items-center gap-0.5 sm:gap-1">
           <Link
             href="/account"
-            className="rounded-sm p-2 text-hb-deep hover:bg-hb-cream"
+            className="hidden items-center gap-1.5 rounded-sm px-2 py-2 text-sm text-hb-deep hover:bg-hb-cream sm:inline-flex"
             aria-label="Account"
           >
             <User className="h-5 w-5" />
+            <span className="hidden lg:inline">Account</span>
           </Link>
 
           <Link
@@ -55,7 +56,7 @@ export function Header() {
           >
             <Heart className="h-5 w-5" />
             {wishCount > 0 && (
-              <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-sm bg-hb-gold px-1 text-[10px] font-semibold text-white">
+              <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center bg-hb-gold px-1 text-[10px] font-bold text-white">
                 {wishCount}
               </span>
             )}
@@ -63,12 +64,13 @@ export function Header() {
 
           <Link
             href="/cart"
-            className="relative rounded-sm p-2 text-hb-deep hover:bg-hb-cream"
+            className="relative inline-flex items-center gap-1.5 rounded-sm bg-hb-deep px-3 py-2 text-sm font-semibold text-white hover:bg-hb-forest"
             aria-label="Cart"
           >
-            <ShoppingBag className="h-5 w-5" />
+            <ShoppingBag className="h-4 w-4" />
+            <span className="hidden sm:inline">Cart</span>
             {cartCount > 0 && (
-              <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-sm bg-hb-deep px-1 text-[10px] font-semibold text-white">
+              <span className="flex h-5 min-w-5 items-center justify-center bg-hb-gold px-1 text-[11px] font-bold text-white">
                 {cartCount}
               </span>
             )}

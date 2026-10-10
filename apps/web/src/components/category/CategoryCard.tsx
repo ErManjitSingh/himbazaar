@@ -13,20 +13,23 @@ export function CategoryCard({
   return (
     <Link
       href={`/category/${category.slug}`}
-      className={cn("group block", className)}
+      className={cn(
+        "group flex flex-col overflow-hidden border border-hb-border bg-white transition hover:border-hb-deep/30",
+        className
+      )}
     >
-      <div className="relative aspect-[5/4] overflow-hidden bg-hb-cream">
+      <div className="relative aspect-[4/3] overflow-hidden bg-hb-cream">
         <Image
           src={category.image.url}
           alt={category.image.alt}
           fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         />
       </div>
-      <div className="pt-3">
-        <h3 className="font-medium text-hb-deep">{category.name}</h3>
-        <p className="mt-0.5 text-xs text-hb-muted">
+      <div className="p-3 text-center">
+        <h3 className="text-sm font-semibold text-hb-deep">{category.name}</h3>
+        <p className="mt-0.5 text-[11px] text-hb-muted">
           {category.productCount} products
         </p>
       </div>

@@ -10,18 +10,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variants: Record<Variant, string> = {
-  primary: "bg-hb-deep text-white hover:bg-[#0f1720]",
-  secondary: "bg-hb-cream text-hb-deep hover:bg-[#e2e8ee]",
+  primary: "bg-hb-deep text-white hover:bg-hb-forest",
+  secondary: "bg-hb-cream text-hb-deep hover:bg-[#e7ece8]",
   outline:
-    "border border-hb-deep/20 bg-transparent text-hb-deep hover:border-hb-deep/40 hover:bg-hb-cream/80",
+    "border border-hb-deep/20 bg-transparent text-hb-deep hover:border-hb-deep/40 hover:bg-hb-cream",
   ghost: "bg-transparent text-hb-deep hover:bg-hb-cream",
-  gold: "bg-hb-gold text-white hover:bg-[#b0683e]",
+  gold: "bg-hb-gold text-white hover:bg-[#b45d24]",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-3.5 text-xs",
-  md: "h-11 px-5 text-sm",
-  lg: "h-12 px-7 text-sm",
+  sm: "h-9 px-3.5 text-xs font-semibold",
+  md: "h-11 px-5 text-sm font-semibold",
+  lg: "h-12 px-7 text-sm font-semibold",
   icon: "h-10 w-10",
 };
 
@@ -30,7 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     <button
       ref={ref}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex items-center justify-center gap-2 rounded-sm transition-colors disabled:pointer-events-none disabled:opacity-50",
         variants[variant],
         sizes[size],
         className

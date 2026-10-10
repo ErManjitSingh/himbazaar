@@ -11,7 +11,7 @@ export function MegaNav() {
 
   return (
     <nav
-      className="hidden border-t border-hb-border/50 bg-hb-ivory/95 lg:block"
+      className="hidden border-t border-hb-border bg-white lg:block"
       aria-label="Primary"
       onMouseLeave={() => setMegaMenu(null)}
     >
@@ -32,7 +32,7 @@ export function MegaNav() {
               {item.label}
             </Link>
             {megaMenu === item.label && item.children && (
-              <div className="absolute left-0 top-full z-50 w-[320px] border border-t-0 border-hb-border bg-hb-ivory p-4">
+              <div className="absolute left-0 top-full z-50 w-[320px] border border-t-0 border-hb-border bg-white p-4">
                 <ul className="space-y-1">
                   {item.children.map((child) => (
                     <li key={child.href}>

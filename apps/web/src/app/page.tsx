@@ -2,28 +2,39 @@ import { Hero } from "@/components/home/Hero";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { CollectionShowcase } from "@/components/home/CollectionShowcase";
 import { StoryBanner } from "@/components/home/StoryBanner";
+import { GiftHampers } from "@/components/home/GiftHampers";
 import { CategoryCard } from "@/components/category/CategoryCard";
 import { RegionCard } from "@/components/region/RegionCard";
-import { SellerCard } from "@/components/seller/SellerCard";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
   getBestSellers,
   getCategories,
   getCollections,
+  getGiftHampers,
+  getNewArrivals,
   getRegions,
   getSellers,
 } from "@/services";
 
 export default async function HomePage() {
-  const [categories, collections, bestSellers, regions, sellers] =
-    await Promise.all([
-      getCategories(),
-      getCollections(true),
-      getBestSellers(8),
-      getRegions(),
-      getSellers(),
-    ]);
+  const [
+    categories,
+    collections,
+    bestSellers,
+    newArrivals,
+    regions,
+    sellers,
+    hampers,
+  ] = await Promise.all([
+    getCategories(),
+    getCollections(true),
+    getBestSellers(8),
+    getNewArrivals(8),
+    getRegions(),
+    getSellers(),
+    getGiftHampers(),
+  ]);
 
   return (
     <>
@@ -34,11 +45,11 @@ export default async function HomePage() {
         <div className="container-hb">
           <SectionHeading
             title="Shop by category"
-            description="What the mountains make best — pantry, craft, and wool."
+            description="Browse pantry, wellness, wool and craft from Himachal."
             href="/shop"
-            linkLabel="Browse all"
+            linkLabel="All categories"
           />
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {categories.slice(0, 6).map((category) => (
               <CategoryCard key={category._id} category={category} />
             ))}
@@ -46,57 +57,51 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section-pad border-y border-hb-border/70 bg-hb-cream/40">
+      <section className="section-pad bg-hb-cream/60">
         <div className="container-hb">
           <SectionHeading
             title="Best sellers"
-            description="The jars, weaves, and crafts people reorder."
+            description="Most loved products — ready to add to cart."
             href="/shop?sort=rating"
+            linkLabel="View all"
           />
           <ProductGrid products={bestSellers} sellers={sellers} />
         </div>
       </section>
 
+      <section className="section-pad">
+        <div className="container-hb">
+          <SectionHeading
+            title="New arrivals"
+            description="Fresh stock from mountain sellers this week."
+            href="/shop?sort=newest"
+            linkLabel="See what's new"
+          />
+          <ProductGrid products={newArrivals} sellers={sellers} />
+        </div>
+      </section>
+
       <CollectionShowcase collections={collections} />
+
+      <GiftHampers hampers={hampers} />
 
       <section className="section-pad">
         <div className="container-hb">
           <SectionHeading
             title="Shop by region"
-            description="Shimla, Kullu, Kinnaur, Spiti — each valley has its own shelf."
+            description="Find products from Kullu, Kinnaur, Kangra and more."
             href="/region/kullu"
             linkLabel="All regions"
           />
-          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {regions.slice(0, 6).map((region, i) => (
-              <RegionCard
-                key={region._id}
-                region={region}
-                large={i === 0}
-                className={i === 0 ? "md:col-span-2 lg:col-span-1 lg:row-span-2" : undefined}
-              />
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {regions.slice(0, 6).map((region) => (
+              <RegionCard key={region._id} region={region} />
             ))}
           </div>
         </div>
       </section>
 
       <StoryBanner />
-
-      <section className="section-pad">
-        <div className="container-hb">
-          <SectionHeading
-            title="Meet the makers"
-            description="Farmers, artisans, and family kitchens behind every listing."
-            href="/sell-on-himbazaar"
-            linkLabel="Sell on HimBazaar"
-          />
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {sellers.slice(0, 4).map((seller) => (
-              <SellerCard key={seller._id} seller={seller} />
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }

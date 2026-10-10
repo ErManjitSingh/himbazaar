@@ -1,21 +1,20 @@
 @import "tailwindcss";
 
-/* Explicit source roots so production builds include all utility classes */
 @source "../**/*.{js,ts,jsx,tsx,mdx}";
 
 :root {
-  /* Cold ridge — ink, mist, copper. Not cream/gold marketplace. */
-  --hb-deep: #15202b;
-  --hb-forest: #1e4d3f;
-  --hb-natural: #4a6358;
-  --hb-gold: #c4784a;
-  --hb-cream: #eef2f5;
-  --hb-ivory: #f7f9fb;
-  --hb-text: #15202b;
-  --hb-muted: #5c6b76;
-  --hb-border: #d5dde5;
+  /* Himalayan shop — pine brand, clean white storefront, copper CTA */
+  --hb-deep: #0f3d2e;
+  --hb-forest: #145239;
+  --hb-natural: #2f6b4f;
+  --hb-gold: #c96b2c;
+  --hb-cream: #f3f5f2;
+  --hb-ivory: #fbfcfb;
+  --hb-text: #14241c;
+  --hb-muted: #5f6f66;
+  --hb-border: #dde5df;
   --hb-white: #ffffff;
-  --hb-danger: #a33b3b;
+  --hb-danger: #b42318;
   --hb-success: #1f6b4a;
 
   --background: var(--hb-ivory);
@@ -100,34 +99,33 @@
   }
 
   .section-pad {
-    padding-block: 3.5rem;
+    padding-block: 2.75rem;
   }
 
   @media (min-width: 768px) {
     .section-pad {
-      padding-block: 5rem;
+      padding-block: 3.75rem;
     }
   }
 
   @media (min-width: 1024px) {
     .section-pad {
-      padding-block: 6rem;
+      padding-block: 4.5rem;
     }
   }
 
   .gradient-mountain {
     background:
-      radial-gradient(ellipse 70% 50% at 10% 0%, rgba(30, 77, 63, 0.08), transparent 55%),
-      radial-gradient(ellipse 60% 40% at 100% 20%, rgba(196, 120, 74, 0.07), transparent 50%),
-      linear-gradient(180deg, #e8eef3 0%, var(--hb-ivory) 100%);
+      radial-gradient(ellipse 70% 50% at 0% 0%, rgba(15, 61, 46, 0.06), transparent 55%),
+      linear-gradient(180deg, #eef3ef 0%, var(--hb-ivory) 100%);
   }
 
   .hero-overlay {
     background: linear-gradient(
-      180deg,
-      rgba(21, 32, 43, 0.35) 0%,
-      rgba(21, 32, 43, 0.15) 40%,
-      rgba(21, 32, 43, 0.72) 100%
+      105deg,
+      rgba(15, 61, 46, 0.78) 0%,
+      rgba(15, 61, 46, 0.45) 48%,
+      rgba(15, 61, 46, 0.2) 100%
     );
   }
 
@@ -144,7 +142,7 @@
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -154,7 +152,7 @@
 
 @keyframes hero-ken {
   from {
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
   to {
     transform: scale(1);
@@ -168,19 +166,19 @@
 }
 
 .animate-fade-up {
-  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-fade-up-delay {
-  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both;
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
 
 .animate-fade-up-late {
-  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
 }
 
 .animate-hero-ken {
-  animation: hero-ken 12s ease-out both;
+  animation: hero-ken 14s ease-out both;
 }
 
 .skeleton {
@@ -197,7 +195,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.55),
     transparent
   );
   animation: shimmer 1.4s infinite;
